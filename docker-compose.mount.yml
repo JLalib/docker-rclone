@@ -1,0 +1,23 @@
+services:
+  rclone-onedrive-mount:
+    image: rclone/rclone:latest
+    container_name: rclone-onedrive-mount
+    user: "1000:1000"
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - TZ=Europe/Madrid
+    volumes:
+      - /rclone/config:/config/rclone
+      - /mnt/onedrive:/mnt/onedrive:shared  # ruta del host para ver OneDrive
+    command: >
+      mount onedrive: /mnt/onedrive
+      --allow-other
+      --dir-cache-time 72h
+      --vfs-cache-mode writes               # recomendado para OneDrive
+      --log-level=INFO
+    restart: unless-stopped
