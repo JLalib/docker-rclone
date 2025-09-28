@@ -224,6 +224,16 @@ Así podrás referenciar `/data` en las llamadas RC (`srcFs=/data`).
 
 ---
 
-## Licencia
-Este README se publica bajo licencia **MIT** (ajústala si tu repositorio usa otra).
+
+Recuerda:
+
+Cambia --rc-pass=CAMBIA_ESTA_PASSWORD por una contraseña fuerte.
+
+Antes del montaje, crea la carpeta del host y ajusta permisos:
+```
+sudo mkdir -p /mnt/onedrive
+```
+```
+sudo chown 1000:1000 /mnt/onedrive
+```
 
