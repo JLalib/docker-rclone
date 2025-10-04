@@ -49,19 +49,19 @@ services:
   rclone-webui:
     image: rclone/rclone:latest
     container_name: rclone-webui
-    user: "1000:1000"                 # tu UID:GID
+    user: "1000:1000"
     environment:
       - TZ=Europe/Madrid
       - XDG_CACHE_HOME=/config/rclone/.cache
     ports:
-      - "5670:5670"                   # LAN: http://IP_DEL_HOST:5670
+      - "5670:5670"
     volumes:
-      - /rclone/config:/config/rclone  # aquí vive rclone.conf y la caché
+      - /rclone/config:/config/rclone
     command: >
       rcd
       --rc-addr=:5670
       --rc-user=admin
-      --rc-pass=CAMBIA_ESTA_PASSWORD   # pon una contraseña fuerte
+      --rc-pass=CAMBIA_ESTA_PASSWORD
       --rc-web-gui
       --rc-web-gui-update
       --rc-web-gui-no-open-browser
