@@ -32,9 +32,9 @@ Guía práctica para desplegar **rclone WebUI** en Docker, crear un remoto **One
 Crea la carpeta de configuración y la caché de la WebUI **persistentes** en el host:
 
 ```bash
-mkdir -p /rclone/config/.cache/rclone/webgui
-chown -R 1000:1000 /rclone/config
-chmod -R 700 /rclone/config
+sudo mkdir -p docker/rclone/config/.cache/rclone/webgui
+sudo chown -R 1000:1000 docker/rclone/config
+sudo chmod -R 700 docker/rclone/config
 ```
 
 > Guardaremos `rclone.conf` y la caché de la WebUI en ese volumen para evitar errores 404 por permisos.
